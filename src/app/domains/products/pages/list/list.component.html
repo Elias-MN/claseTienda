@@ -1,0 +1,13 @@
+<div class="grid grid-cols-4 gap-8 w-full">
+
+  <app-product [imagen]="'https://picsum.photos/200/200?r=1'" [titulo]="'uno'" [precio]="100"></app-product>
+  <app-product (addToCart)="add($event)" [imagen]="'https://picsum.photos/200/200?r=2'" [titulo]="'dos'"
+    [precio]="200"></app-product>
+
+  <!--
+  @for (item of listadoProductos; track $index) {
+  <app-product [imagen]="item.imagen" [titulo]="item.titulo" [precio]="item.precio"></app-product>
+  }
+-->
+
+</div>
