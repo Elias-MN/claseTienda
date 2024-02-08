@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { ProductComponent } from '../../components/product/product.component';
+import { Product } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-list',
@@ -10,24 +11,27 @@ import { ProductComponent } from '../../components/product/product.component';
 })
 export class ListComponent {
 
-  listadoProductos = [
+  listadoProductos = signal<Product[]>([
     {
-      titulo: "Camiseta",
-      imagen: "https://picsum.photos/200/200?r=1",
-      precio: 100
+      id: 0,
+      title: "Camiseta",
+      image: "https://picsum.photos/200/200?r=1",
+      price: 100
     },
     {
-      titulo: "Pantalon",
-      imagen: "https://picsum.photos/200/200?r=2",
-      precio: 60
+      id: 1,
+      title: "Pantalon",
+      image: "https://picsum.photos/200/200?r=2",
+      price: 60
     },
     {
-      titulo: "Zapatillas",
-      imagen: "https://picsum.photos/200/200?r=3",
-      precio: 30
+      id: 2,
+      title: "Zapatillas",
+      image: "https://picsum.photos/200/200?r=3",
+      price: 30
     }
 
-  ];
+  ]);
 
   add(event: string) {
     console.log(event);

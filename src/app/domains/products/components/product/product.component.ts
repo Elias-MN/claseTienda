@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Product } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -10,9 +11,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ProductComponent {
 
   // Estos son elementos que enviamos al template hijo
-  @Input({ required: true }) imagen: string = '';
-  @Input({ required: true }) titulo: string = '';
-  @Input({ required: true }) precio: number = 0;
+  @Input({ required: true }) product!: Product;
 
   // Estos son elementos que recibimos del template hijo
   // Es como crear un evento click personalizado
