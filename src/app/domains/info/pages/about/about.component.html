@@ -1,1 +1,12 @@
-<p>about works!</p>
+<div>
+  <input type="number" [value]="duracion()" (blur)="cambiarDuracion($event)">
+</div>
+
+<div>
+  <input type="text" [value]="mensaje()" (blur)="cambiarMensaje($event)">
+</div>
+
+<div>
+  @if(duracion() < 200){ <app-counter [duration]="duracion()" [message]="mensaje()"></app-counter>
+    }
+</div>

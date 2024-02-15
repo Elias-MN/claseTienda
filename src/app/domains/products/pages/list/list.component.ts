@@ -33,6 +33,7 @@ export class ListComponent {
 
   ]);
 
+
   add(event: string) {
     console.log(event);
   }
