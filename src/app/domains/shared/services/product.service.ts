@@ -15,4 +15,17 @@ export class ProductService {
     return this.http.get<Product[]>(url.toString());
   }
 
+  getOneByID(miId?: string) {
+    let url = new URL('https://api.escuelajs.co/api/v1/products');
+
+    if (miId) {
+      url.searchParams.set('IDMunicipio', miId);
+    }
+
+    return this.http.get<Product[]>(url.toString());
+  }
+
+
+
+
 }
