@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ProductComponent } from '../../components/product/product.component';
 import { Product } from '../../../shared/models/product.model';
+import { ProductService } from '../../../shared/services/product.service';
 
 @Component({
   selector: 'app-list',
@@ -11,28 +12,21 @@ import { Product } from '../../../shared/models/product.model';
 })
 export class ListComponent {
 
-  listadoProductos = signal<Product[]>([
-    {
-      id: 0,
-      title: "Camiseta",
-      image: "https://picsum.photos/200/200?r=1",
-      price: 100
-    },
-    {
-      id: 1,
-      title: "Pantalon",
-      image: "https://picsum.photos/200/200?r=2",
-      price: 60
-    },
-    {
-      id: 2,
-      title: "Zapatillas",
-      image: "https://picsum.photos/200/200?r=3",
-      price: 30
-    }
+  listadoProductos = signal<Product[]>([]);
 
-  ]);
+  private productService = inject(ProductService);
 
+  ngOnInit() {
+    this.productService.getAllProducts().subscribe({
+      next: (data) => {
+        console.log(data);
+        this.listadoProductos.set(data);
+      },
+      error: (e) => {
+        console.error(e);
+      }
+    })
+  }
 
   add(event: string) {
     console.log(event);
