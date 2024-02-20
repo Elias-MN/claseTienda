@@ -12,5 +12,10 @@ import { Product } from '../../models/product.model';
 export class HeaderComponent {
 
   cart = signal<Product[]>([]);
+  mostrarOcultar = signal(true);
+
+  showHide() {
+    this.mostrarOcultar.set(!this.mostrarOcultar());
+  }
 
 }
