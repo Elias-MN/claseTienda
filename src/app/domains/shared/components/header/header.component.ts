@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLinkActive, RouterModule, RouterLinkWithHref } from '@angular/router';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-header',
@@ -9,5 +10,7 @@ import { RouterLinkActive, RouterModule, RouterLinkWithHref } from '@angular/rou
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
+  cart = signal<Product[]>([]);
 
 }
