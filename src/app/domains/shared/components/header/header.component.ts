@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { RouterLinkActive, RouterModule, RouterLinkWithHref } from '@angular/router';
 import { Product } from '../../models/product.model';
 
@@ -11,7 +11,7 @@ import { Product } from '../../models/product.model';
 })
 export class HeaderComponent {
 
-  cart = signal<Product[]>([]);
+  @Input({ required: true }) cart: Product[] = [];
   mostrarOcultar = signal(true);
 
   showHide() {

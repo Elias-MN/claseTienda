@@ -2,17 +2,19 @@ import { Component, inject, signal } from '@angular/core';
 import { ProductComponent } from '../../components/product/product.component';
 import { Product } from '../../../shared/models/product.model';
 import { ProductService } from '../../../shared/services/product.service';
+import { HeaderComponent } from '../../../shared/components/header/header.component';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [ProductComponent],
+  imports: [ProductComponent, HeaderComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
 export class ListComponent {
 
   listadoProductos = signal<Product[]>([]);
+  cart = signal<Product[]>([]);
 
   private productService = inject(ProductService);
 
@@ -28,8 +30,9 @@ export class ListComponent {
     })
   }
 
-  add(event: string) {
-    console.log(event);
+  addProduct(product: Product) {
+    this.cart.update(estadoActual => [...estadoActual, product]);
+
   }
 
 }

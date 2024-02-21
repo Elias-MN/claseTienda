@@ -1,7 +1,9 @@
+<app-header [cart]="cart()"></app-header>
+
 <div class="grid grid-cols-4 gap-8 w-full">
 
   @for (item of listadoProductos(); track $index) {
-  <app-product (addToCart)="add($event)" [product]="item"></app-product>
+  <app-product (addToCart)="addProduct($event)" [product]="item"></app-product>
   }
 
 </div>

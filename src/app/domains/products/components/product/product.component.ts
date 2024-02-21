@@ -22,7 +22,7 @@ export class ProductComponent {
   addProduct() {
     console.log("Click en el hijo");
     // Enviamos comunicación al padre, debemos enlazar este evento como parámetro
-    this.addToCart.emit("Click desde el hijo");
+    this.addToCart.emit(this.product);
   }
 
 }
