@@ -19,7 +19,7 @@
     </div>
     <div class="flex items-center">
       <button (click)="showHide()" class="p-2 border rounded relative">
-        <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs"></div>
+        <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs">{{ cart.length }}</div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
           class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -40,10 +40,18 @@
       </svg>
     </button>
   </div>
-  <div>
+  <div class="pt-4 flex flex-col">
     @for (item of cart; track $index) {
-    <h1>{{ item.title }}</h1>
-    <p> {{ item.price }}</p>
+    <div class="flex justify-between items-center space-y-2">
+      <div class="flex space-x-2 items-center">
+        <img class="w-6 h-6" [src]="item.images[0]" [alt]="item.title">
+        <h3> {{ item.title }} </h3>
+      </div>
+      <p>{{ item.price | currency:'€'}}</p>
+    </div>
     }
+    <div>
+      <p>Total: {{ total() }}</p>
+    </div>
   </div>
 </div>

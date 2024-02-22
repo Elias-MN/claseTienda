@@ -11,7 +11,7 @@ export class ProductService {
   private http = inject(HttpClient);
 
   getAllProducts() {
-    let url = new URL('https://api.escuelajs.co/api/v1/products');
+    let url = new URL('https://api.escuelajs.co/api/v1/products?offset=0&limit=12');
     return this.http.get<Product[]>(url.toString());
   }
 

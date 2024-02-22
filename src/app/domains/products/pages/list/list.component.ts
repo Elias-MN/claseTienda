@@ -32,7 +32,6 @@ export class ListComponent {
 
   addProduct(product: Product) {
     this.cart.update(estadoActual => [...estadoActual, product]);
-
   }
 
 }
