@@ -41,7 +41,7 @@
     </button>
   </div>
   <div class="pt-4 flex flex-col">
-    @for (item of cart; track $index) {
+    @for (item of cart(); track $index) {
     <div class="flex justify-between items-center space-y-2">
       <div class="flex space-x-2 items-center">
         <img class="w-6 h-6" [src]="item.images[0]" [alt]="item.title">
@@ -51,7 +51,7 @@
     </div>
     }
     <div>
-      <p>Total: {{ total() }}</p>
+      <p>Total: {{ total() }} €</p>
     </div>
   </div>
 </div>

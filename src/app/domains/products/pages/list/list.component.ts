@@ -3,6 +3,7 @@ import { ProductComponent } from '../../components/product/product.component';
 import { Product } from '../../../shared/models/product.model';
 import { ProductService } from '../../../shared/services/product.service';
 import { HeaderComponent } from '../../../shared/components/header/header.component';
+import { CartService } from '../../../shared/services/cart.service';
 
 @Component({
   selector: 'app-list',
@@ -14,7 +15,10 @@ import { HeaderComponent } from '../../../shared/components/header/header.compon
 export class ListComponent {
 
   listadoProductos = signal<Product[]>([]);
-  cart = signal<Product[]>([]);
+  //cart = signal<Product[]>([]);
+
+  private cartService = inject(CartService);
+  cart = this.cartService.cart;
 
   private productService = inject(ProductService);
 
@@ -31,7 +35,7 @@ export class ListComponent {
   }
 
   addProduct(product: Product) {
-    this.cart.update(estadoActual => [...estadoActual, product]);
+    this.cartService.addProduct(product);
   }
 
 }
