@@ -2,11 +2,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../../shared/models/product.model';
 import { CommonModule } from '@angular/common';
 import { TimeAgoPipe } from '@shared/pipes/time-ago.pipe';
+import { ReversePipe } from '@shared/pipes/reverse.pipe';
+import { HighlightDirective } from '@shared/directives/highlight.directive';
+import { HideDirective } from '@shared/directives/hide.directive';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, TimeAgoPipe],
+  imports: [CommonModule, TimeAgoPipe, ReversePipe, HighlightDirective, HideDirective],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
