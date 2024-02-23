@@ -1,11 +1,15 @@
 import { Routes } from '@angular/router';
-import { ListComponent } from './domains/products/pages/list/list.component';
-import { AboutComponent } from './domains/info/pages/about/about.component';
 import { NotFoundComponent } from './domains/info/pages/not-found/not-found.component';
+import { Plantilla1Component } from '@shared/layouts/plantilla1/plantilla1.component';
 
 export const routes: Routes = [
-  { path: "", component: ListComponent },
-  { path: "list", component: ListComponent },
-  { path: "about", component: AboutComponent },
+  {
+    path: "", component: Plantilla1Component, children: [
+      { path: "", loadComponent: () => import('./domains/products/pages/list/list.component') },
+      { path: "list", loadComponent: () => import('./domains/products/pages/list/list.component') },
+    ]
+  },
   { path: "**", component: NotFoundComponent }
 ];
+
+

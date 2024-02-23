@@ -12,7 +12,7 @@ import { CartService } from '@shared/services/cart.service';
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
-export class ListComponent {
+export default class ListComponent {
 
   listadoProductos = signal<Product[]>([]);
   //cart = signal<Product[]>([]);
