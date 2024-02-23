@@ -8,8 +8,7 @@ import { FooterComponent } from './domains/shared/components/footer/footer.compo
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {
   title = 'claseTienda';
