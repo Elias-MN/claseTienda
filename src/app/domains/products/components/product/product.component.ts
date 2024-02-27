@@ -5,11 +5,12 @@ import { TimeAgoPipe } from '@shared/pipes/time-ago.pipe';
 import { ReversePipe } from '@shared/pipes/reverse.pipe';
 import { HighlightDirective } from '@shared/directives/highlight.directive';
 import { HideDirective } from '@shared/directives/hide.directive';
+import { RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, TimeAgoPipe, ReversePipe, HighlightDirective, HideDirective],
+  imports: [CommonModule, TimeAgoPipe, ReversePipe, HighlightDirective, HideDirective, RouterLinkWithHref],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
