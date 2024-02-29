@@ -10,9 +10,14 @@ export class ProductService {
 
   private http = inject(HttpClient);
 
-  getAllProducts() {
-    //let url = new URL('https://api.escuelajs.co/api/v1/products?offset=0&limit=12');
+  getAllProducts(category_id?: string) {
+
     let url = new URL('https://api.escuelajs.co/api/v1/products');
+
+    if (category_id) {
+      url.searchParams.set('categoryId', category_id);
+    }
+
     return this.http.get<Product[]>(url.toString());
   }
 
